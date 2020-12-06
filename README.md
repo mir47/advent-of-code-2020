@@ -1,6 +1,9 @@
-# aoc-kotlin-starter
+# Advent of Code in Kotlin
+* [Resources](https://github.com/Bogdanp/awesome-advent-of-code)
 
-Starter template for solving [Advent of Code](https://adventofcode.com) in [Kotlin](https://kotlinlang.org/)
+# aoc-kotlin-starter template
+
+Starter template for solving [Advent of Code](https://adventofcode.com) in [Kotlin](https://kotlinlang.org/).
 
 ### Features
 
