@@ -1,17 +1,29 @@
 package days
 
 class Day1 : Day(1) {
-
     override fun partOne(): Any {
-        return inputList.take(2)
-            .map { it.toUpperCase() }
-            .joinToString(" ")
+        var s = ""
+        for (i in 0 until inputList.lastIndex-2) {
+            for (j in i+1 until inputList.lastIndex) {
+                if (inputList[i].toInt() + inputList[j].toInt() == 2020) {
+                    s = "${inputList[i].toInt() * inputList[j].toInt()}"
+                }
+            }
+        }
+        return s
     }
 
     override fun partTwo(): Any {
-        return inputString.split("\n")
-            .filterNot { it.isEmpty() }
-            .map { it.toUpperCase() }
-            .last()
+        var s = ""
+        for (i in 0 until inputList.lastIndex-2) {
+            for (j in i+1 until inputList.lastIndex) {
+                for (k in j+1 until inputList.lastIndex) {
+                    if (inputList[i].toInt() + inputList[j].toInt() + inputList[k].toInt() == 2020) {
+                        s = "${inputList[i].toInt() * inputList[j].toInt() * inputList[k].toInt()}"
+                    }
+                }
+            }
+        }
+        return s
     }
 }
