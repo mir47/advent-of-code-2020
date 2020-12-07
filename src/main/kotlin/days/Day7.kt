@@ -15,24 +15,26 @@ class Day7 : Day(7) {
         return map
     }
 
-    private fun getContainers(map: Map<String, String>, bags: Set<String>): Set<String> {
+    private fun getContainers(allBags: Map<String, String>, bags: Set<String>): Set<String> {
         val containers = mutableSetOf<String>()
         bags.forEach { bag ->
-            val set = map.filter { it.value.contains(bag) }.map { it.key }.toSet()
+            val set = allBags.filter { it.value.contains(bag) }.map { it.key }.toSet()
             containers.addAll(set)
-            containers.addAll(getContainers(map, set))
+            containers.addAll(getContainers(allBags, set))
         }
         return containers
     }
 
-    private fun getContains(map: Map<String, String>, bag: String): Int {
+    private fun getContains(allBags: Map<String, String>, bag: String): Int {
         var count = 0
-        map[bag]?.split(",")
-            ?.map { it.replace(",","").trim().split(" ") }
+        allBags[bag]?.split(",")
+            ?.map { it.replace(",", "").trim().split(" ") }
+            ?.filter { it[0] != "no" }
             ?.forEach {
-                if (it[0] != "no") {
-                    count += it[0].toInt() + (it[0].toInt() * getContains(map, "${it[1]} ${it[2]}"))
-                }
+                val bagCount = it[0].toInt()
+                val bagPrefix = it[1]
+                val bagSuffix = it[2]
+                count += bagCount + (bagCount * getContains(allBags, "$bagPrefix $bagSuffix"))
             }
         return count
     }
