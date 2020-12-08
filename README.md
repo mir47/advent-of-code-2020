@@ -1,5 +1,6 @@
 # Advent of Code in Kotlin
 * [Resources](https://github.com/Bogdanp/awesome-advent-of-code)
+* [Kotlin example](https://github.com/agrison/advent-of-code-2020)
 
 # aoc-kotlin-starter template
 
