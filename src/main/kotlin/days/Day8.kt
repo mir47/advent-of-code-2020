@@ -80,6 +80,6 @@ class Day8 : Day(8) {
             Step(split[0], split[1].toInt())
         }
     }
-}
 
-data class Step(var instruction: String, val value: Int, var visited: Boolean = false)
+    data class Step(var instruction: String, val value: Int, var visited: Boolean = false)
+}
